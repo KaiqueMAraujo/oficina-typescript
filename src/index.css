@@ -8,6 +8,14 @@
   --color-bingo: #fbbf24;
 }
 
+@theme inline dark {
+  --color-accent: #dc2626;
+  --color-accent-light: #ef4444;
+  --color-marked: #1f2937;
+  --color-marked-border: #dc2626;
+  --color-bingo: #dc2626;
+}
+
 html,
 body,
 #root {

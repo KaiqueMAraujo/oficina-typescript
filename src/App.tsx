@@ -1,4 +1,5 @@
 import { useBingoGame } from './hooks/useBingoGame';
+import { useTheme } from './hooks/useTheme';
 import { StartScreen } from './components/StartScreen';
 import { GameScreen } from './components/GameScreen';
 import { BingoModal } from './components/BingoModal';
@@ -15,12 +16,25 @@ function App() {
     dismissModal,
   } = useBingoGame();
 
+  const { theme, toggleTheme } = useTheme();
+
   if (gameState === 'start') {
-    return <StartScreen onStart={startGame} />;
+    return (
+      <div className="relative">
+        <StartScreen onStart={startGame} />
+        <button
+          onClick={toggleTheme}
+          className="absolute top-4 right-4 p-2 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-full shadow-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+          aria-label="Toggle theme"
+        >
+          {theme === 'light' ? '🌙' : '☀️'}
+        </button>
+      </div>
+    );
   }
 
   return (
-    <>
+    <div className="relative">
       <GameScreen
         board={board}
         winningSquareIds={winningSquareIds}
@@ -28,10 +42,17 @@ function App() {
         onSquareClick={handleSquareClick}
         onReset={resetGame}
       />
+      <button
+        onClick={toggleTheme}
+        className="absolute top-4 right-4 p-2 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-full shadow-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+        aria-label="Toggle theme"
+      >
+        {theme === 'light' ? '🌙' : '☀️'}
+      </button>
       {showBingoModal && (
         <BingoModal onDismiss={dismissModal} />
       )}
-    </>
+    </div>
   );
 }
 
