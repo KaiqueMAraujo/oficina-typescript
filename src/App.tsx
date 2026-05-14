@@ -24,7 +24,7 @@ function App() {
         <StartScreen onStart={startGame} />
         <button
           onClick={toggleTheme}
-          className="absolute top-4 right-4 p-2 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-full shadow-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+          className="absolute top-4 right-4 p-2 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-full shadow-lg hover:bg-gray-300 dark:hover:bg-gray-600 hover:scale-110 transition-all duration-200"
           aria-label="Toggle theme"
         >
           {theme === 'light' ? '🌙' : '☀️'}
@@ -44,7 +44,7 @@ function App() {
       />
       <button
         onClick={toggleTheme}
-        className="absolute top-4 right-4 p-2 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-full shadow-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+        className="absolute top-4 right-4 p-2 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-full shadow-lg hover:bg-gray-300 dark:hover:bg-gray-600 hover:scale-110 transition-all duration-200"
         aria-label="Toggle theme"
       >
         {theme === 'light' ? '🌙' : '☀️'}
